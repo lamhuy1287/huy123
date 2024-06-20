@@ -1,0 +1,19 @@
+USE project1;
+
+CREATE TABLE orders(
+	order_id INT(11) PRIMARY KEY AUTO_INCREMENT,
+	customer_id INT(11),
+	customer_name VARCHAR(50),
+	customer_phone VARCHAR (12),
+	customer_address VARCHAR(100),
+	order_status tinyint, 
+	created_at INT(11),
+	total INT(11)
+);
+
+CREATE TABLE order_details(
+	order_id INT(11) ,
+	product_id INT(11),
+	product_quantities TINYINT,
+	FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);

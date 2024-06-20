@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .chatbox {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        display: none;
+      }
+
+      .chat-header {
+        background-color: #f0f0f0;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .chat-body {
+        padding: 10px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .chat-footer {
+        padding: 10px;
+        display: flex;
+      }
+
+      .chat-footer textarea {
+        flex: 1;
+        resize: none;
+      }
+
+      .chat-footer button {
+        margin-left: 10px;
+      }
+
+      .open-chat {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <p></p>
+    <div class="chatbox">
+      <div class="chat-header">
+        <h3>Chat with Us</h3>
+        <button class="close-chat" onclick="toggleChatbox()">X</button>
+      </div>
+      <div class="chat-body">
+        <p>Welcome to our chat! How can we assist you?</p>
+      </div>
+      <div class="chat-footer">
+        <textarea
+          id="messageInput"
+          placeholder="Type your message..."
+        ></textarea>
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+    <button class="open-chat" onclick="toggleChatbox()">Chat with Us</button>
+    <script>
+      // Function to send message to Messenger
+      function sendMessageToMessenger(message) {
+        // Thay đổi appId bằng ID ứng dụng của bạn
+        var appId = "YOUR_APP_ID";
+        var pageId = "YOUR_PAGE_ID";
+        var accessToken = "YOUR_ACCESS_TOKEN";
+        var url =
+          "https://graph.facebook.com/v12.0/me/messages?access_token=" +
+          accessToken;
+
+        var payload = {
+          recipient: {
+            id: pageId,
+          },
+          message: {
+            text: message,
+          },
+        };
+
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Message sent:", data);
+            // Thực hiện các hành động sau khi gửi tin nhắn thành công nếu cần
+          })
+          .catch((error) => {
+            console.error("Error sending message:", error);
+            // Xử lý lỗi nếu có
+          });
+      }
+
+      function toggleChatbox() {
+        var chatbox = document.querySelector(".chatbox");
+        chatbox.style.display =
+          chatbox.style.display === "none" ? "block" : "none";
+      }
+
+      function sendMessage() {
+        var messageInput = document.getElementById("messageInput").value;
+        sendMessageToMessenger(messageInput);
+      }
+    </script>
+    <script>
+      confirm("Bạn chắc chắn muốn xóa sản phẩm này???");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Divs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border:none;
+    background-color: white;
+}
+
+button.active {
+    background-color: #007BFF; /* Màu nền cho nút active */
+    color: white;
+    border: none;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.content-div {
+    height: 350px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.color1, .color2 {
+    width: 100%;
+    height: 50%; /* Mỗi màu chiếm 50% chiều cao của div */
+}
+
+#div1 .color1 {
+    background-color: red; /* Màu đầu tiên của div1 */
+}
+
+#div1 .color2 {
+    background-color: blue; /* Màu thứ hai của div1 */
+}
+
+#div2 .color1 {
+    background-color: green; /* Màu đầu tiên của div2 */
+}
+
+#div2 .color2 {
+    background-color: yellow; /* Màu thứ hai của div2 */
+}
+
+#div3 .color1 {
+    background-color: purple; /* Màu đầu tiên của div3 */
+}
+
+#div3 .color2 {
+    background-color: orange; /* Màu thứ hai của div3 */
+}
+
+#div4 .color1 {
+    background-color: pink; /* Màu đầu tiên của div4 */
+}
+
+#div4 .color2 {
+    background-color: cyan; /* Màu thứ hai của div4 */
+}
+
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="btn1" class="active" onclick="showDiv('div1', 'btn1')">Show Div 1</button>
+        <button id="btn2" onclick="showDiv('div2', 'btn2')">Show Div 2</button>
+        <button id="btn3" onclick="showDiv('div3', 'btn3')">Show Div 3</button>
+        <button id="btn4" onclick="showDiv('div4', 'btn4')">Show Div 4</button>
+    </div>
+    <div class="container">
+        <div id="div1" class="content-div">
+            <div class="color1"></div>
+            <div class="color2"></div>
+        </div>
+        <div id="div2" class="content-div" style="display:none;">
+            <div class="color1"></div>
+            <div class="color2"></div>
+        </div>
+        <div id="div3" class="content-div" style="display:none;">
+            <div class="color1"></div>
+            <div class="color2"></div>
+        </div>
+        <div id="div4" class="content-div" style="display:none;">
+            <div class="color1"></div>
+            <div class="color2"></div>
+        </div>
+    </div>
+    <script >
+        function showDiv(divId, btnId) {
+    // Ẩn tất cả các div
+    var divs = document.getElementsByClassName('content-div');
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].style.display = 'none';
+    }
+    // Hiển thị div được chọn
+    document.getElementById(divId).style.display = 'block';
+
+    // Xóa lớp "active" từ tất cả các nút
+    var buttons = document.querySelectorAll('.button-container button');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+    }
+    // Thêm lớp "active" vào nút được chọn
+    document.getElementById(btnId).classList.add('active');
+}
+
+    </script>
+</body>
+</html>

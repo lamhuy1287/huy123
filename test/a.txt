@@ -1,0 +1,8 @@
+1,"43249","Stitch",60,"disney","","https://www.lego.com/cdn/cs/set/assets/bltde91ef1db83222dd/43249.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"
+12,"10330","McLaren MP4/4 & Ayrton Senna",70,"technic","","https://www.lego.com/cdn/cs/set/assets/bltf8476f68fa47b137/10330.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"
+13,"71812","Kai's Ninja Climber Mech",60,"ninjago","","https://www.lego.com/cdn/cs/set/assets/bltde3762f748d25c73/71812.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"
+21,"71484","Cooper's Robot Dinosaur C-Rex",70,"dreamzzz","A cool LEGO® DREAMZzz™ dinosaur robot toy","https://www.lego.com/cdn/cs/set/assets/blt27b357d47e7b13c0/71484.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5"
+31,"71813","Wolf Mask Shadow Dojo",105,"ninjago","qqwww","../../public/upload/71813.png"
+33,"42639","Andrea's Modern Mansion",170,"friends","hello","../../public/upload/42639_alt1.webp"
+34,"71818","Tournament Battle Arena",50,"ninjago","fhefqoif","../../public/upload/71818.webp"
+35,"71485","Mateo and Z-Blob the Knight Battle Mech",115,"dreamzzz","A LEGO® DREAMZzz™ mech toy to fuel creativity

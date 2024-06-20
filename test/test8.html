@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Order Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .product-list, .order-summary {
+            margin-bottom: 20px;
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .product img {
+            width: 100px;
+            height: auto;
+        }
+        .product-details {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .product-actions {
+            text-align: right;
+        }
+        .product-actions input {
+            width: 40px;
+            text-align: center;
+        }
+        .product-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .order-summary {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .order-summary h2 {
+            margin: 0 0 10px 0;
+        }
+        .order-summary input, .order-summary button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .order-summary .total {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .express-checkout {
+            display: flex;
+            flex-direction: column;
+        }
+        .express-checkout button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-list">
+            <div class="product">
+                <img src="batmobile.jpg" alt="Batmobile: Batman vs. The Joker Chase">
+                <div class="product-details">
+                    <h3>Batmobile™: Batman™ vs. The Joker™ Chase</h3>
+                    <p>$47.99</p>
+                </div>
+                <div class="product-actions">
+                    <input type="number" value="1">
+                    <button>🗑️</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="batwing.jpg" alt="Batwing: Batman vs. The Joker">
+                <div class="product-details">
+                    <h3>Batwing: Batman™ vs. The Joker™</h3>
+                    <p>$37.99</p>
+                </div>
+                <div class="product-actions">
+                    <input type="number" value="1">
+                    <button>🗑️</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="nasa.jpg" alt="NASA Artemis Space Launch System">
+                <div class="product-details">
+                    <h3>NASA Artemis Space Launch System</h3>
+                    <p>$259.99</p>
+                </div>
+                <div class="product-actions">
+                    <input type="number" value="1">
+                    <button>🗑️</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="tie-interceptor.jpg" alt="TIE Interceptor">
+                <div class="product-details">
+                    <h3>TIE Interceptor™</h3>
+                    <p>$229.99</p>
+                </div>
+                <div class="product-actions">
+                    <input type="number" value="1">
+                    <button>🗑️</button>
+                </div>
+            </div>
+        </div>
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <label for="promo-code">Add a promo/LEGO® Insiders discount code</label>
+            <input type="text" id="promo-code" placeholder="Enter code">
+            <button>Apply</button>
+            <p>Order value (4 items): $575.96</p>
+            <p>Congratulations you qualify for FREE shipping</p>
+            <p class="total">Order Total: $575.96</p>
+            <button>Checkout Securely</button>
+        </div>
+        <div class="express-checkout">
+            <button>Thanh toán bằng PayPal</button>
+            <p>PayPal Pay in 4 interest-free payments of $143.99. <a href="#">Learn more</a></p>
+        </div>
+    </div>
+</body>
+</html>

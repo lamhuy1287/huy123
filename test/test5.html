@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Color Divs</title>
+    <style>
+        .container {
+            width: 100%;
+            display: flex;
+        }
+
+        .div {
+            height: 350px;
+            width: 100%;
+            display: none; /* Hide all divs initially */
+        }
+
+        .div1 {
+            background-color: red;
+            display: flex; /* Show div1 initially */
+        }
+
+        .div2 {
+            background-color: blue;
+        }
+
+        .div3 {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button onclick="showDiv(1)">1</button>
+        <button onclick="showDiv(2)">2</button>
+        <button onclick="showDiv(3)">3</button>
+    </div>
+    <div class="container">
+        <div class="div div1"></div>
+        <div class="div div2"></div>
+        <div class="div div3"></div>
+    </div>
+
+    <script>
+        function showDiv(divNumber) {
+            // Hide all divs
+            const divs = document.querySelectorAll('.div');
+            divs.forEach(div => div.style.display = 'none');
+            
+            // Show the selected div
+            document.querySelector('.div' + divNumber).style.display = 'flex';
+        }
+    </script>
+</body>
+
+</html>
