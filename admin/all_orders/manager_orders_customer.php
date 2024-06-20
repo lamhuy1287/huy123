@@ -8,7 +8,7 @@ $port = 3306;
 // Create connection
 $conn = new mysqli($servername, $username, $password,$db_name,$port);
 
-$sql = "SELECT * FROM orders;";
+$sql = "SELECT * FROM orders order by order_id desc;";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -94,6 +94,8 @@ $result = $conn->query($sql);
             <thead>
                 <tr>
      
+      <th class="text-center">STT</th>
+
       <th class="text-center">Tên khách hàng</th>
       <th class="text-center">Số điện thoại</th>
       <th class="text-center">Địa chỉ</th>
@@ -104,11 +106,14 @@ $result = $conn->query($sql);
             </thead>
          <?php
             if ($result->num_rows > 0) {
+              $count = 0 ;
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     ?> 
                         
+                        <td><?php $count++; echo $count?> </td>
+
                         <td class="text-center"><?php echo $row['customer_name']; ?></td>
                         <td class="text-center"><?php echo $row['customer_phone']; ?></td>
                         <td class="address-column"><?php echo $row['customer_address'];?></td>

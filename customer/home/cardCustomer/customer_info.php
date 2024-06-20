@@ -169,7 +169,7 @@ if ($result->num_rows > 0) {
   <div class="summary_orderDetails" id="summary_orderDetails">
     <h2><b>Tổng thanh toán :</b></h2>
     <hr style="border:0.5px solid black;width:50%">
-    <p><b>Tổng tiền sản phẩm :</b></p>
+    <p><b>Tổng tiền sản phẩm :<?php echo $_SESSION['total']."$"; ?></b></p>
     <br>
     <p><b>Phí ship : 1$</b></p>
     <br>
