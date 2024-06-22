@@ -236,6 +236,14 @@ $row = mysqli_fetch_assoc($result);
         .footer {
             height: auto;
         }
+        
+        table, th, td{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+table{
+    border-collapse:collapse;
+}
     </style>
 </head>
 
@@ -342,32 +350,33 @@ $row = mysqli_fetch_assoc($result);
        
         <div class="div" id="div1">
             <h1 style="text-align: center;">THÔNG TIN KHÁCH HÀNG</h1>
+            <hr style="width:60%;margin-left:20%;margin-right:20%;">
+            <p><b>Họ và Tên:</b> <?php echo $row['name']; ?></p>
             <br>
-            <p>Họ và Tên: <?php echo $row['name']; ?></p>
+            <p><b>Số điện thoại:</b> <?php echo $row['phone']; ?></p>
             <br>
-            <p>Số điện thoại: <?php echo $row['phone']; ?></p>
+            <p><b>Email:</b> <?php echo $row['email']; ?></p>
             <br>
-            <p>Email: <?php echo $row['email']; ?></p>
-            <br>
-            <p>Địa chỉ nhận hàng: <?php echo $row['address']; ?></p>
+            <p><b>Địa chỉ nhận hàng:</b> <?php echo $row['address']; ?></p>
         </div>
         <div class="div " id="div2">
             <form action="../update_customer/processUpdateCustomer.php" method='post'>
                 <h1 style="text-align: center;">CHỈNH SỬA THÔNG TIN</h1>
+                <hr style="width:60%;margin-left:20%;margin-right:20%;">
+                <p><b>Họ và Tên:</b> <input name="name" type="text" value="<?php echo $row['name']?>" placeholder="Full Name"></p>
                 <br>
-                <p>Họ và Tên: <input name="name" type="text" value="<?php echo $row['name']?>" placeholder="Full Name"></p>
+                <p><b>Số điện thoại:</b> <input name="phone" value="<?php echo $row['phone']?>" type="text" placeholder="Phone Number"></p>
                 <br>
-                <p>Số điện thoại: <input name="phone" value="<?php echo $row['phone']?>" type="text" placeholder="Phone Number"></p>
+                <p><b>Email:</b> <input name="email" type="text" value="<?php echo $row['email']?>" placeholder="Gmail"></p>
                 <br>
-                <p>Email: <input name="email" type="text" value="<?php echo $row['email']?>" placeholder="Gmail"></p>
-                <br>
-                <p>Địa chỉ nhận hàng: <input name="address" value="<?php echo $row['address']?>" type="text" placeholder="Address"></p>
+                <p><b>Địa chỉ nhận hàng:</b> <input name="address" value="<?php echo $row['address']?>" type="text" placeholder="Address"></p>
                 <br>
                 <button type="submit" class="btn btn-warning">Cập nhật</button>
             </form>
         </div>
         <div class="div " id="div3">
             <h1 style="text-align: center;">LỊCH SỬ MUA HÀNG</h1>
+            <hr style="width:60%;margin-left:20%;margin-right:20%;">
             <?php
 
 
@@ -391,66 +400,51 @@ $sql = "SELECT * FROM orders where customer_id = $id_customer";
 $result = $conn->query($sql);
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Customer</title>
-    <style>
-    table{
-        border: solid 1px black;
-    }
-    td, th{
-        border: solid 1px black;
-    }
-  </style>
-</head>
-<body>
-    <table>
-        <tr>
-            <th>Tên khách hàng</th>
-            <th>Số điện thoại</th>
-            <th>Địa chỉ</th>
-            <th>Trạng thái đơn hàng</th>
-            <th>Thời gian đặt hàng</th>
-            <th>Tổng tiền</th>
-            <th>Chi tiết</th>
+
+
+    <table >
+        <tr  >
+            <th style="text-align:center;">Địa chỉ nhận hàng</th>
+            <th style="text-align:center;">Trạng thái đơn hàng</th>
+            <th style="text-align:center;">Thời gian đặt hàng</th>
+            <th style="text-align:center;">Tổng tiền</th>
+            <th style="text-align:center;">Chi tiết</th>
+            
         </tr>
+        
             <?php
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
                      ?>
-                        <td><?php echo $row['customer_name'] ?></td>
-                        <td><?php echo $row['customer_phone'] ?></td>
-                        <td><?php echo $row['customer_address'] ?></td>
-                        <td>
+                        
+                        <td style="width:40%;text-align:center;"><?php echo $row['customer_address'] ?></td>
+                        <td style="width:15%">
                         
                            <?php  
                              $data = $row['order_id'];
                              
                              if($row['order_status'] == 0){
-                               echo "<p'>"."Đang chờ duyệt"."</p>";
+                               echo "<p style='text-align:center;color:blue'>"."Đang chờ duyệt"."</p>";
                              }
                              else if($row['order_status'] == 1){
-                                echo "<p style='background-color:yellow;'>"."Đang giao"."</p>";
+                                echo "<p style='color:orange;text-align:center;'>"."Đang giao"."</p>";
                              }
                              else if($row['order_status'] == 2){
-                                echo "<p'>"."Thành công"."</p>";
+                                echo "<p style='text-align:center;color:green'>"."Giao hàng thành công"."</p>";
                              }
                              else{
-                                echo "Đơn hàng đã bị hủy";
+                                echo "<p style='text-align:center;color:red'>"."Đơn hàng đã bị hủy"."</p>";;
                              }
                         
                             ?>
                           
                         </td>
-                        <td><?php echo date("Y-m-d", $row['created_at']); ?></td>
-                        <td><?php echo $row['total'] ?></td>
-                        <td><form action='./order_detail_customer.php' method='post'>
-                            <button style='background-color:green;'>Chi tiết</button>
+                        <td style="width:15%;text-align:center;"><?php echo date("Y-m-d", $row['created_at']); ?></td>
+                        <td style="width:15%;text-align:center;"><?php echo $row['total'] ?>$</td>
+                        <td style="width:15%;text-align:center;"><form action='../order_customer/order_detail_customer.php' method='post'>
+                            <button class="btn btn-success">Chi tiết</button>
                             <?php echo "<input name='order_id' value='$data' hidden>"; ?>
                             </form>
                         </td>
@@ -462,8 +456,7 @@ $result = $conn->query($sql);
                   }
             ?>
     </table>
-</body>
-</html>
+
 
         </div>
     </div>

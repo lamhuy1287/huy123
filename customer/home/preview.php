@@ -430,10 +430,13 @@ $result_related_products = $sql_related_products->get_result();
                 echo "<br>";
                 echo "<br>";
                 echo "<form method ='POST' action='./cardCustomer/processAddToCard.php'>";
-                $product_id = $product["id"];
+                $product_id = $row["id"];
+                echo "<form method ='POST' action='./cardCustomer/processAddToCard.php'>";
                 echo "<input name='product_id_cart' value='$product_id' hidden>";
+                echo "<input name='old_url' value='".$_SERVER['REQUEST_URI']."' hidden>";
                 echo "<button style='margin-left:4px;' type='submit' class='orange-button'>Add To Card</button>";
                 echo "</form>";
+                echo "</div>";
             }
             ?>
         </div>
