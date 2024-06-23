@@ -11,6 +11,7 @@ $conn = new mysqli($servername, $username, $password, $db_name, $port);
 $sql = "SELECT * FROM orders WHERE order_status = 2;";
 $result = $conn->query($sql);
 
+
 function getMonth($time){
     $month = date('m',$time);
     return $month;
@@ -90,6 +91,55 @@ if ($result->num_rows > 0) {
     $result_finally = $conn->query($sql_finally);
     
     $row_finally = $result_finally->fetch_assoc();
+
+    $sql_orders = "SELECT * FROM orders";
+    $result_orders = $conn->query($sql_orders);
+    if ($result_orders->num_rows > 0) {
+        // output data of each row
+        $quantity_orders = [0,0,0,0,0,0,0,0,0,0,0,0];
+        while($row_orders = $result_orders->fetch_assoc()) {
+            $month = getMonth($row_orders['created_at']);
+                if($month == '01'){ 
+                    $quantity_orders[0]++; 
+                }
+                else if($month == '02'){
+                    $quantity_orders[1]++;
+                }
+                else if($month == '03'){
+                    $quantity_orders[2]++;
+                }
+                else if($month == '04'){
+                    $quantity_orders[3]++;
+                }
+                else if($month == '05'){
+                    $quantity_orders[4]++;
+                }
+                else if($month == '06'){
+                    $quantity_orders[5]++;
+                }
+                else if($month == '07'){
+                    $quantity_orders[6]++;
+                }
+                else if($month == '08'){
+                    $quantity_orders[7]++;
+                }
+                else if($month == '09'){
+                    $quantity_orders[8]++;
+                }
+                else if($month == '10'){
+                    $quantity_orders[9]++;
+                }
+                else if($month == '11'){
+                    $quantity_orders[10]++;
+                }
+                else if($month == '12'){
+                    $quantity_orders[11]++;
+                }
+
+        }
+      } else {
+        echo "0 results";
+      }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,6 +216,22 @@ if ($result->num_rows > 0) {
     </div>
     <p><?php echo "Total: ".$sum."$"; ?></p>
     <p><?php echo "Product was bought the most is: ".$row_finally['product_code'].""; ?></p>
+        <?php
+            // print quantity orders follow month
+            for($i = 0; $i < count($quantity_orders); $i++){
+                $t = $i + 1;
+                ?>
+                    <p>
+                        <?php echo "Tháng ".$t." có số lượng đơn được đặt là :".$quantity_orders[$i];
+                         
+                        ?>
+                    </p>
+
+
+                <?php
+                
+            }
+        ?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
