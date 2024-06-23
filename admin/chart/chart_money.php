@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
       $month = getMonth($row['created_at']);
-      if($month == '01'){
+      if($month == '01'){ 
         $data[0] = $data[0] + $row['total'];
       }
       else if($month == '02'){
