@@ -71,6 +71,25 @@ if ($result->num_rows > 0) {
    $text_data = substr($text,0,-1);
    $text_data = "[".$text_data.'],';
 //    echo $text_data;
+   $sum = 0;
+   for($i = 0; $i < count($data); $i++){
+    $sum += $data[$i];
+   }
+
+   $sql_product = 'SELECT product_id,MAX(quantity_count) AS max_quantity_count
+                    FROM (SELECT product_id,COUNT(product_quantities) AS quantity_count
+                    FROM order_details
+                    GROUP BY product_id) AS subquery';
+    $result_product = $conn->query($sql_product);
+    
+    $row_product = $result_product->fetch_assoc();
+
+    $id_finally = $row_product['product_id'];
+    $sql_finally = "select * from products where id=$id_finally;";
+    
+    $result_finally = $conn->query($sql_finally);
+    
+    $row_finally = $result_finally->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,6 +164,8 @@ if ($result->num_rows > 0) {
     <div>
         <canvas id="myChart"></canvas>
     </div>
+    <p><?php echo "Total: ".$sum."$"; ?></p>
+    <p><?php echo "Product was bought the most is: ".$row_finally['product_code'].""; ?></p>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>

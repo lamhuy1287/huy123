@@ -55,25 +55,25 @@ if(isset($_REQUEST['order_id'])){
       <li>
         <a href="/doAn/admin/product/index.php" class="nav-link  text-black" >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Product Management
+          Quản lý sản phẩm
         </a>
       </li>
       <li>
         <a href="../../admin/all_orders/manager_orders_customer.php" class="nav-link active text-black" style="background-color:#FFFF00;">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Order management
+          Quản lý đơn hàng 
         </a>
       </li>
       <li>
-        <a href="../../admin/chart/chart_money.php" class="nav-link text-black">
+        <a href="#" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Revenue statistics
+          Thống kê doanh thu
         </a>
       </li>
       <li>
         <a href="../../customer/home/home.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Customer page
+          Trang khách hàng
         </a>
       </li>
       
@@ -88,15 +88,15 @@ if(isset($_REQUEST['order_id'])){
    </div>
    <div class="container">
     <div class="container">
-        <h1 style="text-align:center;">Order details</h1>
+        <h1 style="text-align:center;">Chi tiết đơn hàng</h1>
         <table class="table table-bordered" id="product_table">
             <thead>
                 <tr>
 
-                    <th class="text-center">Product code</th>
-                    <th class="text-center">Quantity</th>
-                    <th class="text-center">Product name</th>
-                    <th class="text-center">Price</th>
+                    <th class="text-center">Mã sản phẩm</th>
+                    <th class="text-center">Số lượng</th>
+                    <th class="text-center">Tên sản phẩm</th>
+                    <th class="text-center">Giá</th>
 
                 </tr>
             </thead>
@@ -110,17 +110,17 @@ if(isset($_REQUEST['order_id'])){
                         $sql_new = "SELECT * FROM products where id=$id";
                         $result_new = $conn->query($sql_new);
                         $row_new = $result_new->fetch_assoc()
-
+                        
                         ?>
 
             <td>
-               <p style="text-align:center;"> <?php echo $row['product_id']; ?> </p>
+               <p style="text-align:center;"> <?php echo $row_new['product_code']; ?> </p>
             </td>
             <td>
             <p style="text-align:center;"><?php echo $row['product_quantities']; ?></p>
             </td>
             <td>
-            <p style="text-align:center;"> <?php echo $row_new['name']; ?></p>
+                <?php echo $row_new['name']; ?>
             </td>
             <td>
             <p style="text-align:center;"><?php echo $row_new['price']; ?>$</p>

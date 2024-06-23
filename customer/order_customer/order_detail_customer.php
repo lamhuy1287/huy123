@@ -131,7 +131,7 @@ table tr:nth-child(1){
                         $row_new = $result_new->fetch_assoc()
 
                         ?>
-                            <td style="text-align:center;"><?php echo $row['product_id']; ?></td>
+                            <td style="text-align:center;"><?php echo $row_new['product_code']; ?></td>
                             <td style="text-align:center;"><?php echo $row['product_quantities']; ?></td>
                             <td style="text-align:center;"><?php echo $row_new['name']; ?></td>
                             <td style="text-align:center;"><?php echo $row_new['price']; ?>$</td>
