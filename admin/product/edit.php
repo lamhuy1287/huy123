@@ -1,13 +1,38 @@
+<?php
+$product_id = $_GET["id"];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "project1";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+  die("Kết nối thất bại: " . mysqli_connect_error());
+}
+
+// Fetch existing product data
+$sql = "SELECT id, product_code, name, image, themes, price, description FROM products WHERE id = ?";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $product_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$products = mysqli_fetch_assoc($result);
+
+// Close statement
+mysqli_stmt_close($stmt);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-    
     <style>
         .text {
             font-size: 30px;
@@ -62,29 +87,30 @@
     </ul>
     
    </div>
-<!-- CONTENT -->
+
+<!-- Content -->
 <div class="container">
-    <h1 style="text-align:center;">Add new products</h1>
-    <form method='POST' action="create_process.php" enctype="multipart/form-data">
-        <input class="form-control mt-2 " name='product_code' placeholder="Enter product code" required>
-        <input class="form-control mt-2" name='name' placeholder="Enter the product name" required> 
-        <input type="number" step="1" class="form-control mt-2" name='price' placeholder="Enter product price" required>
-        <input type="file" class="form-control mt-2" name='image' placeholder="Select image" required>  
-        <input class="form-control mt-2" name='themes' placeholder="Themes" required>
+    <h1 style="text-align:center;">Update Information</h1>
+    <form method="POST" action="update_process.php" enctype="multipart/form-data">  
+        <input value="<?php echo $product_id ?>" name='product_id' hidden/>
+        <input value="<?php echo $products['product_code'] ?>" class="form-control mt-2" name="product_code" placeholder="Nhập mã sản phẩm" required>
+        <input value="<?php echo $products['name'] ?>" class="form-control mt-2" name="name" placeholder="Nhập tên sản phẩm" required> 
+        <input type="number" step="1" value="<?php echo $products['price'] ?>" class="form-control mt-2" name="price" placeholder="Nhập giá sản phẩm" required>
+        <img width='300px' src="<?php echo $products['image'] ?>" alt="">
+        <input value="<?php echo $products['themes'] ?>" class="form-control mt-2" name="themes" placeholder="Phân loại sản phẩm" required>
         <div class="form-floating mt-2">
-                <textarea name="description" class="form-control" placeholder="Leave a comment here"
-                    id="editor"></textarea>
-         </div>
-        <button type="submit" class="btn btn-primary  mt-2">Add products</button>
+            <textarea name="description" class="form-control" placeholder="Leave a comment here" id="editor"><?php echo $products['description'] ?></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Update</button>
     </form>
 </div>
-</div>
+
 <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 </body>
 </html>

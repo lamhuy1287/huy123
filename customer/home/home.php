@@ -61,6 +61,7 @@ $result = mysqli_query($conn, $sql);
             display: flex;
             align-items: center;
             margin: 0;
+            text-align:center;
         }
         .a2 p i, .a2 p a {
             margin: 0 5px;
@@ -437,9 +438,9 @@ $result = mysqli_query($conn, $sql);
         <div class="header_1">
             <div class="a1"></div>
             <div class="a2">
-                <p>
+                <p >
                     <i class='bx bx-chevron-left'></i>
-                    Free ship toàn quốc cho đơn hàng trên 1.000.000 VNĐ
+                    LEGO® Insiders gift with purchases of £135 or more*
                     <a href="#">Learn more</a>
                     <i class='bx bx-chevron-right'></i>
                 </p>
@@ -485,7 +486,7 @@ $result = mysqli_query($conn, $sql);
             </div>
             <div class="b2">
                 <form action="product.php" id="search-box" method="get">
-                    <input name="search" type="text" id="search-text" placeholder="Tìm kiếm sản phẩm" required>
+                    <input name="search" type="text" id="search-text" placeholder="Search..." required>
                     <button id="search-btn"><i class='bx bx-search'></i></button>
                 </form>
                 <form action='./cardCustomer/showCart.php'>
@@ -495,10 +496,7 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 
-    <div class="banner">
-        <img src="https://collider.com/wp-content/uploads/2017/09/lego-ninjago-movie-illustration-banner.jpg" alt="">
-        <a href="ninjago.php">See More</a>
-    </div>
+   
 
     <script>
         document.getElementById("home").onclick = function () {
@@ -509,7 +507,10 @@ $result = mysqli_query($conn, $sql);
         };
     </script>
 
-
+<div class="banner">
+        <img src="https://collider.com/wp-content/uploads/2017/09/lego-ninjago-movie-illustration-banner.jpg" alt="">
+        <a href="ninjago.php">See More</a>
+    </div>
     <div class="content">
         <!-- Cột 1 -->
         <div style="background-color: rgb(252,188,56);" class="column">
@@ -670,33 +671,34 @@ $result = mysqli_query($conn, $sql);
     <br>
 </body>
 <div class="footer">
-    <hr style="border:1px solid black;">
-    <br>
-    <div class="container" style="background-color:white;row row-cols-3">
-        <div class="row w-100">
-            <div class="col">
+        <hr style="border:1px solid black;">
+        <br>
+        <div class="container" style="background-color:white;row row-cols-3">
+            <div class="row w-100">
+                <div class="col">
 
-                <h3>Liên hệ</h3>
-                <p>Địa chỉ:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
-                <p>Email: lamhuy26@gmail.com</p>
-                <p>Điện thoại: 0377006359</p>
-            </div>
-            <div class="col">
-                <h3>Liên kết</h3>
-                <ul>
-                    <li><a href="home.php">Trang chủ</a></li>
-                    <li><a href="new.php">Sản phẩm</a></li>
-                    <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Liên hệ hỗ trợ</a></li>
-                    <!-- Thêm các liên kết khác -->
-                </ul>
-            </div>
-            <div class="col">
-                <h3>Bản đồ</h3>
-                <div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"
-                        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h3>Contact</h3>
+                    <p>Address:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
+                    <p>Email: lamhuy26@gmail.com</p>
+                    <p>Phone number: 0377006359</p>
+                </div>
+                <div class="col">
+                    <h3>Link</h3>
+                    <ul>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="new.php">Products</a></li>
+                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Contact help</a></li>
+                        <!-- Thêm các liên kết khác -->
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Map</h3>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"
+                            width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>

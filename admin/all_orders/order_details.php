@@ -55,25 +55,25 @@ if(isset($_REQUEST['order_id'])){
       <li>
         <a href="/doAn/admin/product/index.php" class="nav-link  text-black" >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Quản lý sản phẩm
+          Product Management
         </a>
       </li>
       <li>
         <a href="../../admin/all_orders/manager_orders_customer.php" class="nav-link active text-black" style="background-color:#FFFF00;">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Quản lý đơn hàng 
+          Order management
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-black">
+        <a href="../../admin/chart/chart_money.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Thống kê doanh thu
+          Revenue statistics
         </a>
       </li>
       <li>
         <a href="../../customer/home/home.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Trang khách hàng
+          Customer page
         </a>
       </li>
       
@@ -88,15 +88,15 @@ if(isset($_REQUEST['order_id'])){
    </div>
    <div class="container">
     <div class="container">
-        <h1 style="text-align:center;">Chi tiết đơn hàng</h1>
+        <h1 style="text-align:center;">Order details</h1>
         <table class="table table-bordered" id="product_table">
             <thead>
                 <tr>
 
-                    <th class="text-center">Mã sản phẩm</th>
-                    <th class="text-center">Số lượng</th>
-                    <th class="text-center">Tên sản phẩm</th>
-                    <th class="text-center">Giá</th>
+                    <th class="text-center">Product code</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Product name</th>
+                    <th class="text-center">Price</th>
 
                 </tr>
             </thead>
@@ -120,7 +120,7 @@ if(isset($_REQUEST['order_id'])){
             <p style="text-align:center;"><?php echo $row['product_quantities']; ?></p>
             </td>
             <td>
-                <?php echo $row_new['name']; ?>
+            <p style="text-align:center;"> <?php echo $row_new['name']; ?></p>
             </td>
             <td>
             <p style="text-align:center;"><?php echo $row_new['price']; ?>$</p>
