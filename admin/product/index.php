@@ -61,9 +61,9 @@ $result = mysqli_query($conn, $sql);
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-black">
+        <a href="../../admin/chart/chart_money.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Thống kê doanh thu
+            Thống kê doanh thu
         </a>
       </li>
       <li>
