@@ -277,13 +277,13 @@ $total_pages = ceil($total_rows / $items_per_page);
 </head>
 
 <body>
-    <div class="header">
+<div class="header">
         <div class="header_1">
             <div class="a1"></div>
             <div class="a2">
-                <p>
+                <p >
                     <i class='bx bx-chevron-left'></i>
-                    Free ship toàn quốc cho đơn hàng trên 1.000.000 VNĐ
+                    LEGO® Insiders gift with purchases of £135 or more*
                     <a href="#">Learn more</a>
                     <i class='bx bx-chevron-right'></i>
                 </p>
@@ -295,41 +295,28 @@ $total_pages = ceil($total_rows / $items_per_page);
                             echo '<a href = "../../admin/manager_admin/showInfo.php">';
                             echo $_SESSION["admin"];
                             echo "</a>";
+                            echo "|";
+                            echo '<a href = "../../admin/login_logout/logout.php">';
+                            echo 'Logout';
+                            echo "</a>";
                         }
                         else if(isset($_SESSION["customer_name"])){
                             echo "<a href='file_user.php?id_user=" . $_SESSION['customer_id'] . "' class='user'><b>" . $_SESSION["customer_name"] . "</b></a>";
-                           
-                            
                         }
                         else{
                             echo '<a style="color:black" href="../../admin/login_logout/login.php">';
                             echo "Login";
                             echo "</a>";
-                            // echo "|";
-                            // echo '<a href="../registerCustomer/registerCustomer.php">';
-                            // echo "Sign up";
-                            // echo "</a>";
                         } ?>
                 | Join LEGO® Insiders
             </div>
         </div>
         <div class="header_2">
             <div class="b1">
-                <img id="home_1" style="justify-content: center;" height="80px" width="80px" src="logo.png" alt="">
-                <script>
-                    document.getElementById("home_1").onclick = function () {
-                        location.href = "home.php";
-                    };
-                </script>
-                <button id="home_2" type="button" class="btn btn-outline-light text-dark btn-page">Home</button>
-                <script>
-                    document.getElementById("home_2").onclick = function () {
-                        location.href = "home.php";
-                    };
-                </script>
+                <img id="home-logo" height="80px" width="80px" src="logo.png" alt="">
+                <button id="home" type="button" class="btn btn-outline-light text-dark btn-page">Home</button>
                 <div class="dropdown">
-                    <button type="button" class="btn btn-outline-light text-dark btn-page"
-                        data-toggle="dropdown">Themes</button>
+                    <button type="button" class="btn btn-outline-light text-dark btn-page" data-toggle="dropdown">Themes</button>
                     <ul class="dropdown-menu">
                         <li><a href="disney.php">Disney</a></li>
                         <li><a href="friends.php">Friends</a></li>
@@ -339,26 +326,29 @@ $total_pages = ceil($total_rows / $items_per_page);
                     </ul>
                 </div>
                 <button id="help" type="button" class="btn btn-outline-light text-dark btn-page">Help</button>
-                <script>
-                    document.getElementById("help").onclick = function () {
-                        location.href = "help.php";
-                    };
-                </script>
             </div>
             <div class="b2">
-                <form id="search-box">
-                    <input type="text" id="search-text" name="search" placeholder="Tìm kiếm sản phẩm thuộc Disney"
-                        required>
+                <form action="product.php" id="search-box" method="get">
+                    <input name="search" type="text" id="search-text" placeholder="Search..." required>
                     <button id="search-btn"><i class='bx bx-search'></i></button>
                 </form>
                 <form action='./cardCustomer/showCart.php'>
-                    <button type='submit' style="background-color: rgb(252,188,56);border: none;" type="button" class="btn btn-light"><i
-                            class='bx bxs-cart'></i></button>
+                    <button type='submit' style="background-color: rgb(252,188,56);border: none;" class="btn btn-light"><i class='bx bxs-cart'></i></button>
                 </form>
             </div>
         </div>
     </div>
 
+   
+
+    <script>
+        document.getElementById("home").onclick = function () {
+            location.href = "home.php";
+        };
+        document.getElementById("help").onclick = function () {
+            location.href = "help.php";
+        };
+    </script>
     <div id="c1">
         <h2>TECHNIC</h2>
         <br>
@@ -422,37 +412,39 @@ $total_pages = ceil($total_rows / $items_per_page);
     </div>
     <br>
 </body>
-<footer>
-    <hr style="border:1px solid black;">
-    <br>
-    <div class="container" style="background-color:white;row row-cols-3">
-        <div class="row w-100">
-            <div class="col">
+<div class="footer">
+        <hr style="border:1px solid black;">
+        <br>
+        <div class="container" style="background-color:white;row row-cols-3">
+            <div class="row w-100">
+                <div class="col">
 
-                <h3>Liên hệ</h3>
-                <p>Địa chỉ:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
-                <p>Email: lamhuy26@gmail.com</p>
-                <p>Điện thoại: 0377006359</p>
-            </div>
-            <div class="col">
-                <h3>Liên kết</h3>
-                <ul>
-                    <li><a href="home.php">Trang chủ</a></li>
-                    <li><a href="new.php">Sản phẩm</a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=100056716461282">Giới thiệu</a></li>
-                    <!-- Thêm các liên kết khác -->
-                </ul>
-            </div>
-            <div class="col">
-                <h3>Bản đồ</h3>
-                <div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"
-                        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h3>Contact</h3>
+                    <p>Address:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
+                    <p>Email: lamhuy26@gmail.com</p>
+                    <p>Phone number: 0377006359</p>
+                </div>
+                <div class="col">
+                    <h3>Link</h3>
+                    <ul>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="new.php">Products</a></li>
+                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Contact help</a></li>
+                        <!-- Thêm các liên kết khác -->
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Map</h3>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"
+                            width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
-</footer>
+        </div>
+
 </body>
 
 </html>

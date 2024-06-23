@@ -51,25 +51,25 @@ $result = mysqli_query($conn, $sql);
       <li>
         <a href="/doAn/admin/product/index.php" class="nav-link active text-black" style="background-color:#FFFF00;">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Quản lý sản phẩm
+          Product Management
         </a>
       </li>
       <li>
         <a href="../../admin/all_orders/manager_orders_customer.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Quản lý đơn hàng 
+          Order management
         </a>
       </li>
       <li>
         <a href="../../admin/chart/chart_money.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-            Thống kê doanh thu
+          Revenue statistics
         </a>
       </li>
       <li>
         <a href="../../customer/home/home.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Trang khách hàng
+          Customer page
         </a>
       </li>
       
@@ -85,16 +85,16 @@ $result = mysqli_query($conn, $sql);
 <!-- CONTENT -->
 <div class="container">
     <div class="container">
-        <a class="btn btn-warning my-3"  href="/doAn/admin/product/create.php">Thêm sản phẩm mới</a>
+        <a class="btn btn-warning my-3"  href="/doAn/admin/product/create.php">Add new products</a>
         <table class="table table-bordered" id="product_table">
             <thead>
                 <tr>
-                    <th style="text-align:center;">Mã sản phẩm</th>
-                    <th style="text-align:center;">Tên sản phẩm</th>
-                    <th style="text-align:center;">Hình ảnh</th>
-                    <th style="text-align:center;">Giá sản phẩm</th>
-                    <th style="text-align:center;">Phân loại</th>
-                    <th style="text-align:center;">Xóa</th>
+                    <th style="text-align:center;">Product code</th>
+                    <th style="text-align:center;">Name</th>
+                    <th style="text-align:center;">Image</th>
+                    <th style="text-align:center;">Price</th>
+                    <th style="text-align:center;">Themes</th>
+                    <th style="text-align:center;">Operation</th>
                 </tr>
             </thead>
             <?php
@@ -107,11 +107,12 @@ $result = mysqli_query($conn, $sql);
                 echo "</td>";
                 echo "<td style='text-align:center;'>". $row['price']. " $</td>";
                 echo "<td style='text-align:center;'>". $row['themes']. "</td>";
-                echo "<td style='text-align:center;'>";
+                echo "<td style='margin-left:15px;'>";
+                $product_id = $row["id"];         
+                echo "<a href='/doAn/admin/product/edit.php?id=$product_id' class='btn btn-warning mx-2'>Edit</a>";
                 echo "<form method ='POST' action='delete.php'>";
-                $product_id = $row["id"];
                 echo "<input name='product_id' value='$product_id' hidden>";
-                echo "<button type='submit' class='btn btn-warning m-2'>xóa</button>";
+                echo "<button type='submit' class='btn btn-warning m-2'>Delete</button>";
                 echo "</form>";
                 echo "</td>";
                 echo "</tr>";

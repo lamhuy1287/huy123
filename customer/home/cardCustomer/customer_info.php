@@ -145,37 +145,37 @@ if ($result->num_rows > 0) {
     </div>
     <div class="container">
   <div class="delivery_payment" id="delivery_payment">
-  <h2><b>Thông tin nhận hàng :</b></h2>
+  <h2><b>Delivery information:</b></h2>
   <hr style="border:1px solid black;">
   <form action='processOrders.php' method='post'>
-    <label for="">Tên người nhận :</label>
+    <label for="">Recipient's name :</label>
     <br>
     <input name='customer_name' type="text" placeholder='Customer Name' value='<?php echo $customer_name ?>'>
     <br>
     <br>
-    <label for="">Số điện thoại người nhận :</label>
+    <label for="">Recipient phone number:</label>
     <br>
     <input name='customer_phone' type="number" placeholder='Phone Number' value='<?php echo $customer_phone; ?>'>
     <br>
     <br>
-    <label for="">Địa chỉ nhận hàng :</label>
+    <label for="">Delivery address:</label>
     <br>
     <input style="width:100%;" name='customer_address' type="text" placeholder='Customer Address' value='<?php echo $customer_address; ?>'>
     <br>
     <br>
-    <button type='submit'class="orange-button">Xác nhận mua hàng</button>
+    <button type='submit'class="orange-button">Purchase confirmation</button>
     </form>
   </div>
   <div class="summary_orderDetails" id="summary_orderDetails">
-    <h2><b>Tổng thanh toán :</b></h2>
+    <h2><b>Total payment :</b></h2>
     <hr style="border:0.5px solid black;width:50%">
-    <p><b>Tổng tiền sản phẩm :<?php echo $_SESSION['total']."$"; ?></b></p>
+    <p><b>Total product cost:<?php echo $_SESSION['total']."$"; ?></b></p>
     <br>
-    <p><b>Phí ship : 1$</b></p>
+    <p><b>Transportation fee : 1$</b></p>
     <br>
-    <p><b>Hình thức thanh toán : COD </b></p>
+    <p><b>Payments : COD </b></p>
     <br>
-    <p><b>Thuế VAT : Đã đước tính vào giá sản phẩm !</b></p>
+    <p><b>VAT: Included in product price!</b></p>
     <br>
 
 
@@ -191,22 +191,22 @@ if ($result->num_rows > 0) {
             <div class="row w-100">
                 <div class="col">
 
-                    <h3>Liên hệ</h3>
-                    <p>Địa chỉ:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
+                    <h3>Contact</h3>
+                    <p>Address:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
                     <p>Email: lamhuy26@gmail.com</p>
-                    <p>Điện thoại: 0377006359</p>
+                    <p>Phone number: 0377006359</p>
                 </div>
                 <div class="col">
-                    <h3>Liên kết</h3>
+                    <h3>Link</h3>
                     <ul>
-                        <li><a href="home.php">Trang chủ</a></li>
-                        <li><a href="new.php">Sản phẩm</a></li>
-                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Liên hệ hỗ trợ</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="new.php">Products</a></li>
+                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Contact help</a></li>
                         <!-- Thêm các liên kết khác -->
                     </ul>
                 </div>
                 <div class="col">
-                    <h3>Bản đồ</h3>
+                    <h3>Map</h3>
                     <div>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"

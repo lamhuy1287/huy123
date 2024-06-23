@@ -108,16 +108,16 @@ table tr:nth-child(1){
         </div>
     </div>
     
-    <h1 style="text-align:center;">CHI TIẾT ĐƠN HÀNG</h1>
+    <h1 style="text-align:center;">ORDER DETAILS</h1>
     <br>
     <div class="container">
     <table style="width:100%;">
         <tr>
-            <th style="text-align:center;">Mã sản phẩm</th>
-            <th style="text-align:center;">Số lượng</th>
-            <th style="text-align:center;">Tên sản phẩm</th>
-            <th style="text-align:center;">Giá</th>
-            <th style="text-align:center;">Thể loại</th>
+            <th style="text-align:center;">Product code</th>
+            <th style="text-align:center;">Quantity</th>
+            <th style="text-align:center;">Product name</th>
+            <th style="text-align:center;">Product price</th>
+            <th style="text-align:center;">Themes</th>
         </tr>
             <?php
                 if ($result->num_rows > 0) {
@@ -145,6 +145,7 @@ table tr:nth-child(1){
 
 
             ?>
+           
     </table>
     </div>
     <br>
@@ -155,22 +156,22 @@ table tr:nth-child(1){
             <div class="row w-100">
                 <div class="col">
 
-                    <h3>Liên hệ</h3>
-                    <p>Địa chỉ:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
+                    <h3>Contact</h3>
+                    <p>Address:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
                     <p>Email: lamhuy26@gmail.com</p>
-                    <p>Điện thoại: 0377006359</p>
+                    <p>Phone number: 0377006359</p>
                 </div>
                 <div class="col">
-                    <h3>Liên kết</h3>
+                    <h3>Link</h3>
                     <ul>
-                        <li><a href="home.php">Trang chủ</a></li>
-                        <li><a href="new.php">Sản phẩm</a></li>
-                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Liên hệ hỗ trợ</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="new.php">Products</a></li>
+                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Contact help</a></li>
                         <!-- Thêm các liên kết khác -->
                     </ul>
                 </div>
                 <div class="col">
-                    <h3>Bản đồ</h3>
+                    <h3>Map</h3>
                     <div>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"

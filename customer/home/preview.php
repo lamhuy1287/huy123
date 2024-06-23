@@ -424,13 +424,13 @@ $result_related_products = $sql_related_products->get_result();
                 echo "<br>";
                 echo "<h3>Themes: ". $product['themes'] . "</h3>";
                 echo "<br>";
-                echo "<h3 class='product_code'>Mã sản phẩm: #" . $product['product_code'] . "</h3>";
+                echo "<h3 class='product_code'>Product code: #" . $product['product_code'] . "</h3>";
                 echo "<br>";
-                echo "<h3 class='price'>Giá sản phẩm: " . $product['price'] . "$</h3>";
+                echo "<h3 class='price'>Product price: " . $product['price'] . "$</h3>";
                 echo "<br>";
                 echo "<br>";
                 echo "<form method ='POST' action='./cardCustomer/processAddToCard.php'>";
-                $product_id = $row["id"];
+                // $product_id = $row["id"];
                 echo "<form method ='POST' action='./cardCustomer/processAddToCard.php'>";
                 echo "<input name='product_id_cart' value='$product_id' hidden>";
                 echo "<input name='old_url' value='".$_SERVER['REQUEST_URI']."' hidden>";
@@ -458,7 +458,7 @@ $result_related_products = $sql_related_products->get_result();
     <hr>
 </div>
 <br>
-<h2 style="text-align:center;">Sản phẩm tương ứng</h2>
+<h2 style="text-align:center;">Corresponding products</h2>
 <main class="container">
         <div class="product-container">
 <?php
@@ -497,33 +497,36 @@ if ($result_related_products) {
     <br>
 
 </body>
-<footer >
-    <hr style="border:1px solid black;">
-<br>
-        <div class="container" style="background-color:#F5F5F5;row row-cols-3">
+<div class="footer">
+        <hr style="border:1px solid black;">
+        <br>
+        <div class="container" style="background-color:white;row row-cols-3">
             <div class="row w-100">
-                <div class="col" >
-                    
-                    <h3>Liên hệ</h3>
-                    <p>Địa chỉ:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
+                <div class="col">
+
+                    <h3>Contact</h3>
+                    <p>Address:Phú Diễn , Bắc Từ Liêm ,Hà Nội</p>
                     <p>Email: lamhuy26@gmail.com</p>
-                    <p>Điện thoại: 0377006359</p>
+                    <p>Phone number: 0377006359</p>
                 </div>
                 <div class="col">
-                    <h3>Liên kết</h3>
+                    <h3>Link</h3>
                     <ul>
-                        <li><a href="home.php">Trang chủ</a></li>
-                        <li><a href="new.php">Sản phẩm</a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=100056716461282">Giới thiệu</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="new.php">Products</a></li>
+                        <li><a href="https://www.messenger.com/e2ee/t/6948976355124079">Contact help</a></li>
                         <!-- Thêm các liên kết khác -->
                     </ul>
                 </div>
                 <div class="col">
-        <h3>Bản đồ</h3>
-    <div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-     </div>      
-</footer>
+                    <h3>Map</h3>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14894.008647910136!2d105.75368688691543!3d21.052596739639352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454dc9b34f767%3A0xd6b847b3f4d5a4a0!2zUGjDuiBEaeG7hW4sIELhuq9jIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1711990425983!5m2!1svi!2s"
+                            width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
 </html>

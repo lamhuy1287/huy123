@@ -56,25 +56,25 @@ $result = $conn->query($sql);
       <li>
         <a href="/doAn/admin/product/index.php" class="nav-link  text-black" >
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Quản lý sản phẩm
+          Product Management
         </a>
       </li>
       <li>
         <a href="../../admin/all_orders/manager_orders_customer.php" class="nav-link active text-black" style="background-color:#FFFF00;">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Quản lý đơn hàng 
+          Order management
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-black">
+        <a href="../../admin/chart/chart_money.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Thống kê doanh thu
+          Revenue statistics
         </a>
       </li>
       <li>
         <a href="../../customer/home/home.php" class="nav-link text-black">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Trang khách hàng
+          Customer page
         </a>
       </li>
       
@@ -89,19 +89,20 @@ $result = $conn->query($sql);
    </div>
    <div class="container">
     <div class="container">
-       <h1 style="text-align:center;">Toàn bộ đơn hàng</h1>
+       <h1 style="text-align:center;">
+       Entire order</h1>
         <table class="table table-bordered" id="product_table">
             <thead>
                 <tr>
      
-      <th class="text-center">STT</th>
+      <th class="text-center">No.</th>
 
-      <th class="text-center">Tên khách hàng</th>
-      <th class="text-center">Số điện thoại</th>
-      <th class="text-center">Địa chỉ</th>
-      <th class="text-center">Trạng thái</th>    
-      <th class="text-center">Tổng tiền</th>
-      <th class="text-center">Chi tiết</th>
+      <th class="text-center">Customer name</th>
+      <th class="text-center">Phone number</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Order status</th>    
+      <th class="text-center">Total amount</th>
+      <th class="text-center">Order details</th>
                 </tr>
             </thead>
          <?php
@@ -123,18 +124,18 @@ $result = $conn->query($sql);
                             $data = $row['order_id'];
                              echo "<input name='order_id' value='$data' hidden>";
                              if($row['order_status'] == 0){
-                                echo "<button name='accept' value='1' class='btn btn-success mr-2'>"."Duyệt"."</button>";
+                                echo "<button name='accept' value='1' class='btn btn-success mr-2'>"."Acceptance"."</button>";
                                 
-                                echo "<button name='cancel' value='-1' class='btn btn-danger mt-2'>"."Hủy"."</button>";
+                                echo "<button name='cancel' value='-1' class='btn btn-danger mt-2'>"."Cancel"."</button>";
                              }
                              else if($row['order_status'] == 1){
-                                echo "<button name='deliver' value='2' class='btn btn-primary'>"."Đang giao"."</button>";
+                                echo "<button name='deliver' value='2' class='btn btn-primary'>"."Delivering"."</button>";
                              }
                              else if($row['order_status'] == 2){
-                                echo "<p style='color:green;'>Giao thành công</p>";
+                                echo "<p style='color:green;'>Delivered successfully</p>";
                              }
                              else{
-                                echo "<p style='color:red;'>Đã hủy đơn hàng</p>";
+                                echo "<p style='color:red;'>Order canceled</p>";
                              }
                         
                             ?>
@@ -145,7 +146,7 @@ $result = $conn->query($sql);
                         <form action="./order_details.php" method="post">
                         <td>
                             <?php 
-                                echo "<button type='submit' class='btn btn-warning m-2'>Chi tiết</button>"; 
+                                echo "<button type='submit' class='btn btn-warning m-2'>See more</button>"; 
                                 $data = $row['order_id'];
                                 echo "<input name='order_id' value='$data' hidden>";
                             ?>
