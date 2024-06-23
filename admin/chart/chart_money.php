@@ -216,22 +216,28 @@ if ($result->num_rows > 0) {
     </div>
     <p><?php echo "Total: ".$sum."$"; ?></p>
     <p><?php echo "Product was bought the most is: ".$row_finally['product_code'].""; ?></p>
-        <?php
+       <table>
+        <th>Tháng</th>
+        <th>Số lượng đơn được đặt</th>
+       <?php
             // print quantity orders follow month
             for($i = 0; $i < count($quantity_orders); $i++){
+                echo "<tr>";
                 $t = $i + 1;
                 ?>
-                    <p>
-                        <?php echo "Tháng ".$t." có số lượng đơn được đặt là :".$quantity_orders[$i];
-                         
-                        ?>
-                    </p>
+                    <td>
+                        <?php echo $t; ?>                      
+                    </td>
+                    <td>
+                        <?php echo $quantity_orders[$i]; ?>                   
+                    </td>
 
 
                 <?php
-                
+                echo "</tr>";
             }
         ?>
+       </table>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
